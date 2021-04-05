@@ -2,8 +2,9 @@ import xlrd
 import numpy as np
 
 def read_xlsx(filename: str):
+    import os
     array = []
-    data = xlrd.open_workbook(filename)
+    data = xlrd.open_workbook(os.path.split(os.path.realpath(__file__))[0]+'/'+filename)
     table = data.sheet_by_index(0)
 
     for i in range(table.nrows):
