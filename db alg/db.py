@@ -32,14 +32,12 @@ dis_list = dis.flatten().tolist()
 dis_list = [x for x in dis_list if x != 0.0]
 dis_list.sort()
 
-p=0.05  #在本例中当p>=0.4时才会出现离群点
+p=0.05
 
 index = int(len(dis_list)*(1-p))-1
-# D = dis_list[index]
 D = 500**(1/2)
-# print('D is',D)
 
-x = 0
+x = 1
 for row in dis:
     if np.count_nonzero(row > D)>(1-p)*n-1:print(x)
     x+=1
